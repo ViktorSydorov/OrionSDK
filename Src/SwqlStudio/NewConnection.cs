@@ -27,7 +27,7 @@ namespace SwqlStudio
         {
             get
             {
-                var ci = new ConnectionInfo(cmbServer.Text, cmbUserName.Text, tePassword.Text, cmbServerType.Text);
+                var ci = new ConnectionInfo(cmbServer.Text, cmbUserName.Text, tePassword.Text, cmbServerType.Text, teToken.Text);
                 return ci;
             }
         }
@@ -47,15 +47,19 @@ namespace SwqlStudio
         private void CheckIfUserCredentialsNecessary()
         {
             bool requiresAuthentication = (cmbServerType.SelectedItem as ServerType).IsAuthenticationRequired;
+            bool isTokenBased = (cmbServerType.SelectedItem as ServerType).IsTokenBasedAuthentication;
 
             cmbUserName.Enabled = requiresAuthentication;
             tePassword.Enabled = requiresAuthentication;
+
+            teToken.Visible = isTokenBased;
+            lblToken.Visible = isTokenBased;
 
             if (!requiresAuthentication)
             {
                 cmbUserName.Text = string.Empty;
                 tePassword.Text = string.Empty;
-            }
+            }            
             else
             {
                 if (ConnectionHistory.PreviousUserNames.Length > 0)

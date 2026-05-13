@@ -36,8 +36,10 @@
             this.cmbServerType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblToken = new System.Windows.Forms.Label();
             this.cmbUserName = new System.Windows.Forms.ComboBox();
             this.tePassword = new System.Windows.Forms.TextBox();
+            this.teToken = new System.Windows.Forms.TextBox();
             this.cbRememberPassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
@@ -131,6 +133,23 @@
             this.tePassword.Size = new System.Drawing.Size(222, 20);
             this.tePassword.TabIndex = 7;
             this.tePassword.UseSystemPasswordChar = true;
+            //
+            // lblToken
+            // 
+            this.lblToken.AutoSize = true;
+            this.lblToken.Location = new System.Drawing.Point(12, 119);
+            this.lblToken.Name = "lblToken";
+            this.lblToken.Size = new System.Drawing.Size(56, 13);
+            this.lblToken.TabIndex = 6;
+            this.lblToken.Text = "Token:";
+            // 
+            // teToken
+            // 
+            this.teToken.Location = new System.Drawing.Point(93, 116);
+            this.teToken.Name = "teToken";
+            this.teToken.Size = new System.Drawing.Size(222, 20);
+            this.teToken.TabIndex = 7;
+            this.teToken.Visible = false;
             // 
             // cbRememberPassword
             // 
@@ -153,6 +172,7 @@
             this.Controls.Add(this.cbRememberPassword);
             this.Controls.Add(this.tePassword);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblToken);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbUserName);
@@ -161,6 +181,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.connectButton);
+            this.Controls.Add(this.teToken);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -183,8 +204,10 @@
         private System.Windows.Forms.ComboBox cmbServerType;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblToken;
         private System.Windows.Forms.ComboBox cmbUserName;
         private System.Windows.Forms.TextBox tePassword;
+        private System.Windows.Forms.TextBox teToken;
         private System.Windows.Forms.CheckBox cbRememberPassword;
     }
 }

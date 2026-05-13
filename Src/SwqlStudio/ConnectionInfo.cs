@@ -13,6 +13,8 @@ using SolarWinds.InformationService.InformationServiceClient;
 using SwqlStudio.Properties;
 using SwqlStudio.Subscriptions;
 
+using sType = SwqlStudio.ServerType;
+
 namespace SwqlStudio
 {
     public class ConnectionInfo : IDisposable
@@ -28,14 +30,15 @@ namespace SwqlStudio
         public event EventHandler<EventArgs> ConnectionClosed;
         public event EventHandler<EventArgs> ConnectionClosing;
 
-        public ConnectionInfo(string server, string username, string password, string serverType)
+        public ConnectionInfo(string server, string username, string password, string serverType, string token)
         {
             ServerType = serverType;
             _server = server;
             _username = username;
             _password = password;
+            Token  = token?? string.Empty;
 
-            _infoServiceType = InfoServiceFactory.Create(serverType, username, password);
+            _infoServiceType = InfoServiceFactory.Create(serverType, username, password, Token);
             QueryParameters = new PropertyBag();
         }
 
@@ -60,6 +63,11 @@ namespace SwqlStudio
         {
             get { return _password; }
             set { _password = value; }
+        }
+
+        public string Token
+        {
+            get; private set;
         }
 
         public bool CanCreateSubscription { get; set; }
@@ -105,7 +113,8 @@ namespace SwqlStudio
                     new ServerType { Type = "Orion (v3) AD", IsAuthenticationRequired = false },
                     new ServerType { Type = "Orion (v3) Certificate", IsAuthenticationRequired = false },
                     new ServerType { Type = "Orion (v3) over HTTPS", IsAuthenticationRequired = true },
-                    new ServerType { Type = "Orion (v3) over HTTPS legacy pre-2023", IsAuthenticationRequired = true}
+                    new ServerType { Type = "Orion (v3) over HTTPS legacy pre-2023", IsAuthenticationRequired = true},
+                    new ServerType { Type = "Orion (v3) JWT Token", IsAuthenticationRequired = false, IsTokenBasedAuthentication = true }
                 };
 
                 if (Settings.Default.ShowCompressedModes)
@@ -367,7 +376,7 @@ namespace SwqlStudio
 
         internal ConnectionInfo Copy()
         {
-            return new ConnectionInfo(_server, _username, _password, _infoServiceType.ServiceType)
+            return new ConnectionInfo(_server, _username, _password, _infoServiceType.ServiceType, Token)
             {
                 QueryParameters = QueryParameters
             };

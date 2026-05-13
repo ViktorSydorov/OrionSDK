@@ -2,7 +2,7 @@
 {
     internal class InfoServiceFactory
     {
-        public static InfoServiceBase Create(string serverType, string username, string password)
+        public static InfoServiceBase Create(string serverType, string username, string password, string token)
         {
             switch (serverType.ToUpperInvariant())
             {
@@ -20,6 +20,9 @@
 
                 case "ORION (V3) OVER HTTPS LEGACY PRE-2023":
                     return new OrionLegacyHttpsInfoService(username, password);
+
+                case "ORION (V3) JWT TOKEN":
+                    return new OrionInfoServiceJwtToken(token);
             }
 
             return null;
