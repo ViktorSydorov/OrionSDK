@@ -140,7 +140,7 @@
             this.lblToken.Location = new System.Drawing.Point(12, 119);
             this.lblToken.Name = "lblToken";
             this.lblToken.Size = new System.Drawing.Size(56, 13);
-            this.lblToken.TabIndex = 6;
+            this.lblToken.TabIndex = 6;            
             this.lblToken.Text = "Token:";
             // 
             // teToken
@@ -150,6 +150,8 @@
             this.teToken.Size = new System.Drawing.Size(222, 20);
             this.teToken.TabIndex = 7;
             this.teToken.Visible = false;
+            this.teToken.MaxLength = 2000;
+            this.teToken.Multiline = true;
             // 
             // cbRememberPassword
             // 

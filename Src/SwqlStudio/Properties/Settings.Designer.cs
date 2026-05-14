@@ -202,16 +202,29 @@ namespace SwqlStudio.Properties {
                 return ((string)(this["CertificateSubjectName"]));
             }
         }
-        
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("SolarWinds/InformationService/v3/Orion/ssl")]
-        public string OrionV3EndpointPath {
-            get {
+        public string OrionV3EndpointPath
+        {
+            get
+            {
                 return ((string)(this["OrionV3EndpointPath"]));
             }
         }
-        
+
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SolarWinds/InformationService/v3/Orion/ssl")]
+        public string OrionV3EndpointPathToken
+        {
+            get
+            {
+                return ((string)(this["OrionV3EndpointPathToken"]));
+            }
+        }
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("SolarWinds/InformationService/v3/OrionBasic")]
