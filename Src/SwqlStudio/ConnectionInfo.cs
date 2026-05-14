@@ -30,13 +30,13 @@ namespace SwqlStudio
         public event EventHandler<EventArgs> ConnectionClosed;
         public event EventHandler<EventArgs> ConnectionClosing;
 
-        public ConnectionInfo(string server, string username, string password, string serverType, string token)
+        public ConnectionInfo(string server, string username, string password, string serverType, string token = "")
         {
             ServerType = serverType;
             _server = server;
             _username = username;
             _password = password;
-            Token  = token?? string.Empty;
+            Token  = token?.Replace("\r", "").Replace("\n", "")?? string.Empty;
 
             _infoServiceType = InfoServiceFactory.Create(serverType, username, password, Token);
             QueryParameters = new PropertyBag();

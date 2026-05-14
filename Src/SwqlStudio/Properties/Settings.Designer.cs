@@ -216,7 +216,7 @@ namespace SwqlStudio.Properties {
 
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("SolarWinds/InformationService/v3/Orion/ssl")]
+        [global::System.Configuration.DefaultSettingValueAttribute("SolarWinds/InformationService/v3/Json")]
         public string OrionV3EndpointPathToken
         {
             get
