@@ -36,6 +36,7 @@ The **Orion SDK** is open source software that makes it easier for system admini
   * [IPAM API](docs/ip-address-manager/ipam-api/)
 * Server and Application Monitor
    * [SAM Application Monitoring Templates](docs/server-and-application-monitor/sam-application-monitoring-templates/)
+   * [SAM Bulk Add AWS Accounts](docs/sam-bulk-add-aws-accounts/)
 * Log Analyzer 
   * [Exporting log events](docs/log-analyzer/exporting-log-events/)
 
