@@ -76,6 +76,8 @@
       url: /docs/server-and-application-monitor/sam-application-monitoring-templates/
     - title: SAM AppInsight Applications
       url: /docs/sam-appinsight-applications/
+    - title: SAM Bulk Add AWS Accounts
+      url: /docs/sam-bulk-add-aws-accounts/
 
 - title: Log Analyzer
   children:
